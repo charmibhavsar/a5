@@ -38,24 +38,6 @@ app.listen(8000, () => {
     console.log("Server is running at port 8000.");
 })
 // / Adding admin to the db --
-const adminModel = require("./models/adminModel");
-
-
-const bcrypt = require("bcryptjs")
-const addAdmin = async () => {
-
-    const admin = new adminModel({
-        role: "Admin",
-        username: "admin1234",
-        password: "123456789"
-    })
-    const salt = await bcrypt.genSalt(10)
-    admin.password = await bcrypt.hash(admin.password, salt);
-
-    await admin.save();
-    console.log(admin);
-}
-addAdmin();
 
 // const blogModel = require("./models/blogModel.js")
 // const rgnjvk = async () => {
